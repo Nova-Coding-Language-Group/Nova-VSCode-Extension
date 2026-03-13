@@ -1,0 +1,221 @@
+{
+  "use novaui": {
+    "prefix": "use",
+    "body": [
+      "use novaui"
+    ],
+    "description": "Import the NovaUI library"
+  },
+  "ui_window basic": {
+    "prefix": "ui_window",
+    "body": [
+      "ui_window(\"${1:Title}\", ${2:400}, ${3:300}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a basic UI window"
+  },
+  "ui_window with theme": {
+    "prefix": "ui_window_themed",
+    "body": [
+      "ui_window(\"${1:Title}\", ${2:400}, ${3:300}, #${4:121212}, #${5:8A2BE2}, #${6:DCDCDC}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a UI window with bg, accent, text colors"
+  },
+  "colors preset": {
+    "prefix": "colors",
+    "body": [
+      "colors(${1|Light,Dark,Nova,Midnight,Forest,Ember|}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Apply a color theme preset"
+  },
+  "colors manual": {
+    "prefix": "colors_manual",
+    "body": [
+      "colors() {",
+      "\tbg     = #${1:1A1A2E}",
+      "\taccent = #${2:E94560}",
+      "\ttxt    = #${3:EAEAEA}",
+      "}"
+    ],
+    "description": "Manually set bg, accent, and text colors"
+  },
+  "button": {
+    "prefix": "button",
+    "body": [
+      "button(\"${1:Label}\", ${2:20}, ${3:20}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a button widget"
+  },
+  "label": {
+    "prefix": "label",
+    "body": [
+      "label(\"${1:name}\", \"${2:text}\")"
+    ],
+    "description": "Create or update a label"
+  },
+  "named_label": {
+    "prefix": "named_label",
+    "body": [
+      "named_label(\"${1:name}\", \"${2:text}\", ${3:20}, ${4:20}, ${5:200}, ${6:24})"
+    ],
+    "description": "Create a named label at a fixed position"
+  },
+  "set_label": {
+    "prefix": "set_label",
+    "body": [
+      "set_label(\"${1:name}\", ${2:value})"
+    ],
+    "description": "Update the text of a named label"
+  },
+  "txtbox": {
+    "prefix": "txtbox",
+    "body": [
+      "txtbox(\"${1:Caption}\", \"${2:varName}\", ${3:20}, ${4:50}, ${5:260}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a textbox widget"
+  },
+  "icon": {
+    "prefix": "icon",
+    "body": [
+      "icon(\"${1:app.ico}\")"
+    ],
+    "description": "Set the window icon"
+  },
+  "popup": {
+    "prefix": "popup",
+    "body": [
+      "popup(\"${1:message}\")"
+    ],
+    "description": "Show a popup message"
+  },
+  "have variable": {
+    "prefix": "have",
+    "body": [
+      "have ${1:name} = ${2:value}"
+    ],
+    "description": "Declare a variable"
+  },
+  "when block": {
+    "prefix": "when",
+    "body": [
+      "when (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "When (if) block"
+  },
+  "whenwise block": {
+    "prefix": [
+      "whenwise",
+      "ww"
+    ],
+    "body": [
+      "whenwise (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Whenwise / ww (elif) block"
+  },
+  "otherwise block": {
+    "prefix": "otherwise",
+    "body": [
+      "otherwise {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Otherwise (else) block"
+  },
+  "while loop": {
+    "prefix": "while",
+    "body": [
+      "while (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "While loop"
+  },
+  "for loop": {
+    "prefix": "for",
+    "body": [
+      "for (${1:i} = ${2:0}; ${1:i} < ${3:10}; ${1:i}++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "For loop"
+  },
+  "ask": {
+    "prefix": "ask",
+    "body": [
+      "have ${1:input} = ask(\"${2:Prompt: }\")"
+    ],
+    "description": "Ask user for input"
+  },
+  "write_file": {
+    "prefix": "write_file",
+    "body": [
+      "write_file(\"${1:file.txt}\", ${2:content})"
+    ],
+    "description": "Write to a file"
+  },
+  "read_file": {
+    "prefix": "read_file",
+    "body": [
+      "have ${1:content} = read_file(\"${1:file.txt}\")"
+    ],
+    "description": "Read from a file"
+  },
+  "mem_write": {
+    "prefix": "mem_write",
+    "body": [
+      "mem_write(\"${1:key}\", ${2:value})"
+    ],
+    "description": "Write to shared memory"
+  },
+  "mem_read": {
+    "prefix": "mem_read",
+    "body": [
+      "have ${1:value} = mem_read(\"${1:key}\")"
+    ],
+    "description": "Read from shared memory"
+  },
+  "button_grid": {
+    "prefix": "button_grid",
+    "body": [
+      "have ${1:lbl} = [\"${2:7}\",\"${3:8}\",\"${4:9}\"]",
+      "have ${5:bx}  = [\"${6:10}\",\"${7:70}\",\"${8:130}\"]",
+      "have ${9:by}  = [\"${10:60}\",\"${11:60}\",\"${12:60}\"]",
+      "",
+      "button_grid(${1:lbl}, ${5:bx}, ${9:by}, ${13:50}, ${14:40}, \"${15:D}\")",
+      "",
+      "on_button(\"${15:D}\", 0) { $0 }"
+    ],
+    "description": "Create a button grid from label/x/y arrays"
+  },
+  "on_button grid": {
+    "prefix": "on_button",
+    "body": [
+      "on_button(\"${1:Prefix}\", ${2:0}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Handle a button_grid button click by prefix and index"
+  },
+  "clicked": {
+    "prefix": "clicked",
+    "body": [
+      "clicked(\"${1:ButtonLabel}\") {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Handle a button click event"
+  }
+}

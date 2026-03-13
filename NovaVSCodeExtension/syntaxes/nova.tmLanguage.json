@@ -4,10 +4,51 @@
   "scopeName": "source.nova",
   "patterns": [
     {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#use-directive"
+    },
+    {
+      "include": "#colors-block"
+    },
+    {
+      "include": "#hex-colors"
+    },
+    {
+      "include": "#ui-functions"
+    },
+    {
+      "include": "#control-keywords"
+    },
+    {
+      "include": "#declaration-keywords"
+    },
+    {
+      "include": "#builtin-functions"
+    },
+    {
+      "include": "#boolean-null"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#punctuation"
+    }
+  ],
+  "repository": {
+    "comments": {
       "name": "comment.line.double-slash.nova",
       "match": "//.*$"
     },
-    {
+    "strings": {
       "name": "string.quoted.double.nova",
       "begin": "\"",
       "end": "\"",
@@ -18,45 +59,109 @@
         }
       ]
     },
-    {
+    "use-directive": {
+      "patterns": [
+        {
+          "name": "keyword.control.import.nova",
+          "match": "\\buse\\b"
+        },
+        {
+          "name": "entity.name.namespace.nova",
+          "match": "(?<=\\buse\\s+)\\w+"
+        }
+      ]
+    },
+    "colors-block": {
+      "patterns": [
+        {
+          "name": "keyword.control.nova",
+          "match": "\\b(colors|colours)\\b"
+        },
+        {
+          "name": "variable.other.nova",
+          "match": "\\b(bg|accent|txt|text)\\s*(?==)"
+        },
+        {
+          "name": "support.constant.nova",
+          "match": "\\b(Light|Dark|Nova|Midnight|Forest|Ember)\\b"
+        }
+      ]
+    },
+    "hex-colors": {
+      "name": "constant.other.color.nova",
+      "match": "#[0-9A-Fa-f]{3,8}\\b"
+    },
+    "ui-functions": {
+      "patterns": [
+        {
+          "name": "support.function.ui.nova",
+          "match": "\\b(ui_window|ui_message|popup|icon|set_icon)\\b"
+        },
+        {
+          "name": "support.function.widget.nova",
+          "match": "\\b(label|named_label|set_label|button|button_grid|on_button|clicked|txtbox|textbox|get_textbox|set_textbox)\\b"
+        },
+        {
+          "name": "support.function.theme.nova",
+          "match": "\\b(set_bg|set_accent|set_text|set_colors)\\b"
+        }
+      ]
+    },
+    "control-keywords": {
       "name": "keyword.control.nova",
-      "match": "\\b(when|otherwise|while|pause|if|else|for|return|break|continue)\\b"
+      "match": "\\b(when|whenwise|ww|otherwise|else|while|pause|for|return|break|continue|if)\\b"
     },
-    {
+    "declaration-keywords": {
       "name": "keyword.declaration.nova",
-      "match": "\\b(have|put|write_file|read_file|ui_window|ui_message|icon|label|button|clicked|App\\.Exit|Application\\.Exit)\\b"
+      "match": "\\b(have|put|use)\\b"
     },
-    {
-      "name": "entity.name.function.nova",
-      "match": "\\b(ui_window|ui_message|set_icon|label|button|clicked|App\\.Exit|Application\\.Exit)\\b"
+    "builtin-functions": {
+      "patterns": [
+        {
+          "name": "support.function.io.nova",
+          "match": "\\b(write_file|read_file|ask|say|print)\\b"
+        },
+        {
+          "name": "support.function.app.nova",
+          "match": "\\b(App\\.Exit|Application\\.Exit|mem_read|mem_write)\\b"
+        },
+        {
+          "name": "variable.language.nova",
+          "match": "\\b(this|self|super)\\b"
+        }
+      ]
     },
-    {
-      "name": "variable.language.nova",
-      "match": "\\b(this|self|super)\\b"
+    "boolean-null": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.nova",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "constant.language.null.nova",
+          "match": "\\b(null|nil)\\b"
+        }
+      ]
     },
-    {
+    "numbers": {
       "name": "constant.numeric.nova",
       "match": "\\b\\d+(\\.\\d+)?\\b"
     },
-    {
+    "operators": {
       "name": "keyword.operator.nova",
-      "match": "(\\+|\\-|\\*|\\/|\\=|\\=\\=|\\>|\\<|\\!\\=|\\>=|<=|\\+=|\\-=|\\*=|\\/=)"
+      "match": "(\\+|\\-|\\*|\\/|==|!=|>=|<=|>|<|\\+=|\\-=|\\*=|\\/=|=)"
     },
-    {
-      "name": "punctuation.separator.nova",
-      "match": "[,;]"
-    },
-    {
-      "name": "punctuation.bracket.nova",
-      "match": "[\\[\\]\\{\\}\\(\\)]"
-    },
-    {
-      "name": "constant.language.boolean.nova",
-      "match": "\\b(true|false)\\b"
-    },
-    {
-      "name": "constant.language.null.nova",
-      "match": "\\b(null|nil)\\b"
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.nova",
+          "match": "[,;]"
+        },
+        {
+          "name": "punctuation.bracket.nova",
+          "match": "[\\[\\]\\{\\}\\(\\)]"
+        }
+      ]
     }
-  ]
+  }
 }

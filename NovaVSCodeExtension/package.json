@@ -1,8 +1,8 @@
 {
   "name": "nova-syntax",
   "displayName": "Nova Syntax",
-  "description": "Syntax highlighting for the Nova language",
-  "version": "1.0.0",
+  "description": "Syntax highlighting for the Nova programming language",
+  "version": "1.1.0",
   "publisher": "KerbalMissile",
   "engines": {
     "vscode": "^1.50.0"
@@ -13,14 +13,19 @@
   "icon": "NovaLanguageIcon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KerbalMissile/Nova-Coding-Language.git"
+    "url": "https://github.com/Nova-Coding-Language-Group/Nova-Coding-Language.git"
   },
   "contributes": {
     "languages": [
       {
         "id": "nova",
-        "aliases": ["Nova", "nova"],
-        "extensions": [".nova"],
+        "aliases": [
+          "Nova",
+          "nova"
+        ],
+        "extensions": [
+          ".nova"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -29,6 +34,12 @@
         "language": "nova",
         "scopeName": "source.nova",
         "path": "./syntaxes/nova.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "nova",
+        "path": "./snippets/nova.json"
       }
     ]
   }
